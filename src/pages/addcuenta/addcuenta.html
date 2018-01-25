@@ -1,0 +1,83 @@
+<!--
+  Generated template for the AddcuentaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar cuenta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+        <ion-label floating>Nro de cuenta</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label floating>Tipo cuenta</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-label floating>Tipo cuenta</ion-label>
+        <ion-select [(ngModel)]="gaming">
+          <ion-option value="nes">Ahorros</ion-option>
+          <ion-option value="n64">Debito</ion-option>
+          <ion-option value="ps">Credito</ion-option>
+          <ion-option value="genesis">Corriente</ion-option>
+          <ion-option value="saturn">Otra..</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Cliente</ion-label>
+        <ion-select [(ngModel)]="cliente">
+          <ion-option value="nes">Cristian</ion-option>
+          <ion-option value="n64">Andres</ion-option>
+          <ion-option value="ps">Daniel</ion-option>
+          <ion-option value="genesis">Jenny</ion-option>
+          <ion-option value="saturn">Anita</ion-option>
+        </ion-select>
+      </ion-item>
+<!--       
+      <ion-item>
+        <ion-label floating>Cliente</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-label floating>Oficina</ion-label>
+        <ion-select [(ngModel)]="oficina">
+          <ion-option value="nes">Sucursal 1</ion-option>
+          <ion-option value="n64">Sucursal 2</ion-option>
+          <ion-option value="ps">Agencia Ibarra</ion-option>
+          <ion-option value="genesis">Agencia Atuntaqui</ion-option>
+          <ion-option value="saturn">Agencia San Pablo</ion-option>
+        </ion-select>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label floating>Oficina</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item> -->
+      <!-- <ion-item>
+        <ion-label floating>Fecha apertura</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-label floating>Fecha apertura</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Saldo</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+              
+    </ion-list>
+    <button ion-button color="primary">Guardar</button>
+    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+  
+
+</ion-content>
