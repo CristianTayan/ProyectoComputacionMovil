@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Cliente</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="registroCliente()"><ion-icon name="add"></ion-icon></button>   
@@ -16,14 +16,19 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+    <!-- <ion-list>
+        <button ion-item *ngFor="let cliente of clientes" (click)="itemSelected(cliente)">
+          {{ cliente.apellidos }} {{cliente.nombres}}
+        </button>  
+      </ion-list> -->
   <ion-list>
-      <ion-item *ngFor = "let item of clienteListRef$ | async " >
-        <h2>Nombre: {{item.apellidos}}</h2>
-        <h2>Nombre: {{item.nombre}}</h2>
-        <h3>Id: {{item.id}}</h3>
-        <h3>Direccion: {{item.direccion}}</h3>
-        <h3>Telefonos: {{item.telefonos}}</h3>
+      <ion-item *ngFor="let cliente of clientes" (click)="registroCliente(cliente.id)" >
+        <h2>{{cliente.nombres}} {{cliente.apellidos}}</h2>
+        <!-- <h2>Nombre: {{cliente.nombres}}</h2> -->
+        <h3> {{cliente.id}}</h3>
+        <!-- <h3> {{cliente.direccion}}</h3>
+        <h3> {{cliente.telefonos}}</h3> -->
       </ion-item>
     </ion-list>
   <!-- <ion-fab bottom right>

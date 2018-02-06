@@ -17,23 +17,24 @@
   <ion-list>
       <ion-item>
         <ion-label floating>Descripción</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]="oficina.descripcion"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Ciudad</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]="oficina.ciudad"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Dirección</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]="oficina.direccion"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Teléfonos</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]="oficina.telefonos"></ion-input>
       </ion-item>
               
     </ion-list>
-    <button ion-button color="primary">Guardar</button>
-    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button block ion-button color="primary" (click)="addOficina()">Guardar Oficina</button>
+    <button *ngIf="id != null"  ion-button block  (click)="deleteOficina()" color="danger">Eliminar  Oficina</button>
+    <!-- <button block ion-button color="secondary" (click)="cancelar()">Cancelar</button> -->
 
 </ion-content>

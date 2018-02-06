@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OficinasService } from '../../services/oficina.service';
+import { AddoficinaPage } from '../addoficina/addoficina';
 
 /**
  * Generated class for the OficinaPage page.
@@ -14,15 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'oficina.html',
 })
 export class OficinaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  oficinas = [];
+  @ViewChild('myNav') nav: NavController
+  constructor(public navCtrl: NavController, public navParams: NavParams
+  , public oficinaService: OficinasService) {
+    this.oficinas = oficinaService.getOficinas();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OficinaPage');
+  public registroOficina(id){
+    this.navCtrl.push(AddoficinaPage, {id:id});
   }
-  registroOficina(){
-    this.navCtrl.push('AddoficinaPage');
-}
+  public crearOficina(){
+    this.navCtrl.push(AddoficinaPage, {id:0});
+    
+  }
+
 
 }

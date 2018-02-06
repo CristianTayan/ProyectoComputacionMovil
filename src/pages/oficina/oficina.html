@@ -14,6 +14,15 @@
 
 
 <ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let oficina of oficinas" (click)="registroOficina(oficina.id)" >
+          <h2>{{oficina.descripcion}} </h2>
+          <!-- <h2>Nombre: {{cliente.nombres}}</h2> -->
+          <!-- <h3> {{oficina.id}}</h3> -->
+          <!-- <h3> {{cliente.direccion}}</h3>
+          <h3> {{cliente.telefonos}}</h3> -->
+        </ion-item>
+      </ion-list>
     <ion-fab bottom right>
       <button ion-fab color="danger" (click)="registroOficina()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>

@@ -17,27 +17,27 @@
     <ion-list>
         <ion-item>
             <ion-label floating>id</ion-label>
-            <ion-input type="text" [(ngModel)]="clienteItem.id"></ion-input>
+            <ion-input type="text" [(ngModel)]="cliente.id"></ion-input>
           </ion-item>
       <ion-item>
         <ion-label floating>Apellidos</ion-label>
-        <ion-input type="text" [(ngModel)]="clienteItem.apellidos"></ion-input>
+        <ion-input type="text" [(ngModel)]="cliente.apellidos"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Nombres</ion-label>
-        <ion-input type="text" [(ngModel)]="clienteItem.nombres"></ion-input>
+        <ion-input type="text" [(ngModel)]="cliente.nombres"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Dirección</ion-label>
-        <ion-input type="text" [(ngModel)]="clienteItem.direccion"></ion-input>
+        <ion-input type="text" [(ngModel)]="cliente.direccion"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Teléfonos</ion-label>
-        <ion-input type="text" [(ngModel)]="clienteItem.telefonos"></ion-input>
+        <ion-input type="text" [(ngModel)]="cliente.telefonos"></ion-input>
       </ion-item>
               
     </ion-list>
-    <button ion-button color="primary" (click)="addCliente(clienteItem)">Guardar</button>
-    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button ion-button color="primary" (click)="addCliente(clienteItem)" block>Guardar</button>
+    <button ion-button color="danger" (click)="cancelar()" block>Cancelar</button>
 
 </ion-content>
