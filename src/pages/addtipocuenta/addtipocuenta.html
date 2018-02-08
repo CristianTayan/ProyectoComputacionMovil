@@ -15,12 +15,16 @@
 
 <ion-content padding>
   <ion-list>
+      <ion-item>
+          <ion-label floating>Tipo Cuenta</ion-label>
+          <ion-input type="text" [(ngModel)]="tipoCuenta.tipocuenta"></ion-input>
+        </ion-item>
     <ion-item>
       <ion-label floating>Descripción</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-input type="text" [(ngModel)]="tipoCuenta.descripcion"></ion-input>
     </ion-item>            
   </ion-list>
-  <button ion-button color="primary" >Guardar</button>
-  <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+  <button ion-button color="primary" (click)="addtipoCuenta()" block >Guardar tipo cuenta</button>
+  <button *ngIf="id != null" ion-button color="danger" block (click)="deletetipoCuenta()">Eliminar tipo cuenta</button>
 
 </ion-content>

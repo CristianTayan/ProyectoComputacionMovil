@@ -6,15 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>TipoCuenta</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Tipo Cuenta</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="registrotipoCuenta()"><ion-icon name="add"></ion-icon></button>   
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-fab bottom right>
-      <button ion-fab color="danger" (click)="registroTipoCuenta()"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+  <ion-list>
+    <ion-item *ngFor="let tipoCuenta of tipoCuentas" (click)="registrotipoCuenta(tipoCuenta.id)" >
+      <h2>{{tipoCuenta.descripcion}} </h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

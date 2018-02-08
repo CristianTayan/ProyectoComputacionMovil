@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { TipoCuentaService } from '../../services/tipoCuenta.service';
+import { AddtipocuentaPage } from '../addtipocuenta/addtipocuenta';
 
 /**
  * Generated class for the TipoCuentaPage page.
@@ -14,15 +17,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tipo-cuenta.html',
 })
 export class TipoCuentaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tipoCuentas = [];
+  @ViewChild('myNav') nav: NavController;
+  constructor(public navCtrl: NavController, public navParams: NavParams
+  ,public tipoCuentaService: TipoCuentaService) {
+    tipoCuentaService.gettipoCuentas()
+      .subscribe(tipoCuentas =>{
+      this.tipoCuentas = tipoCuentas;
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TipoCuentaPage');
+  registrotipoCuenta(id){
+    this.navCtrl.push(AddtipocuentaPage, {id:id});
   }
-  registroTipoCuenta(){
-    this.navCtrl.push('AddtipocuentaPage');
-}
+  creartipoCuenta(){
+    this.navCtrl.push(AddtipocuentaPage, {id:0})
+  }
 
 }

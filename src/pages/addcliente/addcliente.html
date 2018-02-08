@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Agregar cliente</ion-title>
   </ion-navbar>
 
@@ -15,10 +15,6 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item>
-            <ion-label floating>id</ion-label>
-            <ion-input type="text" [(ngModel)]="cliente.id"></ion-input>
-          </ion-item>
       <ion-item>
         <ion-label floating>Apellidos</ion-label>
         <ion-input type="text" [(ngModel)]="cliente.apellidos"></ion-input>
@@ -37,7 +33,6 @@
       </ion-item>
               
     </ion-list>
-    <button ion-button color="primary" (click)="addCliente(clienteItem)" block>Guardar</button>
-    <button ion-button color="danger" (click)="cancelar()" block>Cancelar</button>
-
+    <button block ion-button color="primary" (click)="addCliente()">Guardar Cliente</button>
+    <button *ngIf="id != null"  ion-button block  (click)="deleteCliente()" color="danger">Eliminar  Cliente</button>
 </ion-content>

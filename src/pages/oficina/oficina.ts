@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OficinasService } from '../../services/oficina.service';
 import { AddoficinaPage } from '../addoficina/addoficina';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the OficinaPage page.
@@ -17,10 +18,13 @@ import { AddoficinaPage } from '../addoficina/addoficina';
 })
 export class OficinaPage {
   oficinas = [];
-  @ViewChild('myNav') nav: NavController
+  @ViewChild('myNav') nav: NavController;
   constructor(public navCtrl: NavController, public navParams: NavParams
   , public oficinaService: OficinasService) {
-    this.oficinas = oficinaService.getOficinas();
+    oficinaService.getOficinas()
+      .subscribe(oficinas =>{
+      this.oficinas = oficinas;
+    });
   }
 
   public registroOficina(id){

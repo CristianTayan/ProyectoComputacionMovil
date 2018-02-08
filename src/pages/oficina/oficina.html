@@ -6,8 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Oficina</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="registroOficina()"><ion-icon name="add"></ion-icon></button>   
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -23,7 +26,5 @@
           <h3> {{cliente.telefonos}}</h3> -->
         </ion-item>
       </ion-list>
-    <ion-fab bottom right>
-      <button ion-fab color="danger" (click)="registroOficina()"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+
 </ion-content>

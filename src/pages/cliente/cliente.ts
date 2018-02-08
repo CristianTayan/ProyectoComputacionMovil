@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClienteService } from '../../services/cliente.services';
-import { ViewChild } from '@angular/core/src/metadata/di';
-import { AddclientePage } from '../addcliente/addcliente'
+import { AddclientePage } from '../addcliente/addcliente';
+import { Observable } from 'rxjs/Observable';
 // import { AddclientePage } from '../addcliente/addcliente' 
 // import {  AngularFireDatabase } from 'angularfire2/database';
 // import { FirebaseListObservable } from 'angularfire2/database-deprecated';
@@ -21,17 +21,19 @@ import { AddclientePage } from '../addcliente/addcliente'
 })
 export class ClientePage {
    clientes = [];
-   @ViewChild('myNav') nav: NavController
+   @ViewChild('myNav') nav: NavController;
     constructor(public navCtrl: NavController, public navParams: NavParams, public clienteService: ClienteService) {
-      this.clientes = clienteService.getClientes();
+      clienteService.getClientes().subscribe(clientes => {
+        this.clientes = clientes;
+      });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ClientePage');
-  }
   
   registroCliente(id){
     this.navCtrl.push(AddclientePage, {id:id});
-}
+  }
+  public crearCliente(){
+    this.navCtrl.push(AddclientePage, {id:0});   
+  }
 
 }

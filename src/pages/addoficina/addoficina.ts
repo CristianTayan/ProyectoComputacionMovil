@@ -15,24 +15,24 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'addoficina.html',
 })
 export class AddoficinaPage {
-  oficina = {id:null, descripcion: null, ciudad: null, direccion: null, telefonos: null};
+  oficina = {};
   id = null;
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public oficinasService: OficinasService) {
+  constructor(public alertCtrl: AlertController,public navCtrl: NavController,
+     public navParams: NavParams, public oficinasService: OficinasService) {
     this.id = navParams.get('id');
-    if (this.id != 0){
-    this.oficina = oficinasService.getOficina(this.id);  
+    if (this.id != null){
+    oficinasService.getOficina(this.id).subscribe(oficina => {
+      this.oficina = oficina;
+    });  
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddoficinaPage');
-  }
   cancelar(){
     this.navCtrl.push('HomePage');
   }
 
   addOficina(){
-    if (this.id != 0){
+    if (this.id != null){
       this.oficinasService.editarOficina(this.oficina);
       let alert = this.alertCtrl.create({
         title: 'Ok!',
