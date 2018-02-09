@@ -17,6 +17,7 @@ import { CuentaService } from '../../services/cuenta.service';
 })
 export class CuentaPage {
   cuentas = [];
+  tipoCuentas = [];
   @ViewChild('myNav') nav: NavController;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public cuentaService: CuentaService) {
@@ -24,6 +25,11 @@ export class CuentaPage {
       .subscribe(cuentas => {
         this.cuentas = cuentas;
       });
+    cuentaService.getTipoCuentas().subscribe(tipoCuentas =>{
+      this.tipoCuentas = tipoCuentas;
+      console.log(this.tipoCuentas);
+      
+    });
   }
   
   public registroCuenta(id){

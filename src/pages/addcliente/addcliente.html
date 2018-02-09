@@ -34,5 +34,5 @@
               
     </ion-list>
     <button block ion-button color="primary" (click)="addCliente()">Guardar Cliente</button>
-    <button *ngIf="id != null"  ion-button block  (click)="deleteCliente()" color="danger">Eliminar  Cliente</button>
+    <button *ngIf="id != 0"  ion-button block  (click)="deleteCliente()" color="danger">Eliminar  Cliente</button>
 </ion-content>

@@ -19,10 +19,9 @@ export class AddclientePage {
   id = null;
 
   constructor( public alertCtrl: AlertController, public navCtrl: NavController, public navParams:
-     NavParams, public clienteServices: ClienteService) {
-      //  this.clienteItemRef$ = this.database.list('cliente-list');  
+     NavParams, public clienteServices: ClienteService) {  
       this.id = navParams.get('id'); 
-      if (this.id != null){
+      if (this.id != 0){
         clienteServices.getCliente(this.id).subscribe(cliente => {
           this.cliente = cliente;
         });  
@@ -33,7 +32,7 @@ export class AddclientePage {
     this.navCtrl.push('HomePage');
   }
   addCliente(){
-    if (this.id != null){
+    if (this.id != 0){
       this.clienteServices.editarCliente(this.cliente);
       let alert = this.alertCtrl.create({
         title: 'Ok!',

@@ -6,6 +6,20 @@ import { AngularFireDatabase } from 'angularfire2/database';
     constructor(public afDB: AngularFireDatabase){
     }
     cuentas = [];
+    clientes = [];
+    oficinas =[];
+    tipoCuentas = [];
+    
+    public getOficinas(){
+        return this.afDB.list('oficinas/').valueChanges();
+    }
+    
+    public getClientes(){
+        return this.afDB.list('clientes/').valueChanges();
+    }
+    public getTipoCuentas(){
+        return this.afDB.list('tipocuenta/').valueChanges();
+    }
     public getCuentas(){
         return this.afDB.list('cuenta/').valueChanges();
     }

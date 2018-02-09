@@ -17,38 +17,30 @@
   <ion-list>
       <ion-item>
         <ion-label floating>Nro de cuenta</ion-label>
-        <ion-input type="text" [(ngModel)]="cuenta.numero" ></ion-input>
+        <ion-input type="text" [(ngModel)]="cuenta.id" disabled="true"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Tipo cuenta</ion-label>
-        <ion-select [(ngModel)]="cuenta.tipocuenta">
-          <ion-option value="ahorros">Ahorros</ion-option>
-          <ion-option value="debito">Debito</ion-option>
-          <ion-option value="credito">Credito</ion-option>
-          <ion-option value="corriente">Corriente</ion-option>
-          <ion-option value="otra">Otra..</ion-option>
-        </ion-select>
+        <!-- <ion-select [(ngModel)]="cuenta.tipocuenta" >
+          <ion-option *ngFor="let tipoCuenta of tipoCuentas" value="{{tipoCuenta.tipocuenta}}" >{{tipoCuenta.descripcion}}</ion-option>   
+        </ion-select> -->
+        <ion-select [(ngModel)]="cuenta.tipocuenta"> <ion-option *ngFor="let tipoCuenta of tipoCuentas" value="{{tipoCuenta.tipocuenta}}">{{tipoCuenta.descripcion}}</ion-option> </ion-select>
       </ion-item>
       <ion-item>
         <ion-label floating>Cliente</ion-label>
-        <ion-select [(ngModel)]="cuenta.cliente">
-          <ion-option value="Cristian">Cristian</ion-option>
-          <ion-option value="Andres">Andres</ion-option>
-          <ion-option value="Daniel">Daniel</ion-option>
-          <ion-option value="Jenny">Jenny</ion-option>
-          <ion-option value="Anita">Anita</ion-option>
-        </ion-select>
+        <ion-select [(ngModel)]="cuenta.cliente"> <ion-option *ngFor="let cliente of clientes" value="{{cliente.apellidos}}">{{cliente.apellidos}} {{cliente.nombres}}</ion-option> </ion-select>
       </ion-item> 
 
       <ion-item>
         <ion-label floating>Oficina</ion-label>
-        <ion-select [(ngModel)]="cuenta.oficina">
-          <ion-option value="Sucursal 1">Sucursal 1</ion-option>
-          <ion-option value="Sucursal 2">Sucursal 2</ion-option>
+        <ion-select [(ngModel)]="cuenta.oficina"> <ion-option *ngFor="let oficina of oficinas" value="{{oficina.descripcion}}">{{oficina.descripcion}}</ion-option> </ion-select>
+        
+        <!-- <ion-select [(ngModel)]="cuenta.oficina">
+          <ion-option value="Sucursal 2">Agencia Atuntaqui</ion-option>
           <ion-option value="Agencia Ibarra">Agencia Ibarra</ion-option>
-          <ion-option value="Agencia Atuntaqui">Agencia Atuntaqui</ion-option>
+          <ion-option value="Agencia Atuntaqui">Agencia Otavalo</ion-option>
           <ion-option value="Agencia San Pablo">Agencia San Pablo</ion-option>
-        </ion-select>
+        </ion-select> -->
       </ion-item>
       <ion-item>
         <ion-label floating>Fecha apertura</ion-label>
