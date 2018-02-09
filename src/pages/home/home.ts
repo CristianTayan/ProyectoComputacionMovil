@@ -44,4 +44,8 @@ export class HomePage {
     this.navCtrl.push('TipoCuentaPage');
   }
 
+  cerrarSesion(){
+    this.navCtrl.push('LoginPage');
+  }
+
 }
