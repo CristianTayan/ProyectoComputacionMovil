@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AddcuentaPage } from '../addcuenta/addcuenta';
+import { CuentaService } from '../../services/cuenta.service';
 
 /**
  * Generated class for the CuentaPage page.
@@ -14,15 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'cuenta.html',
 })
 export class CuentaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cuentas = [];
+  @ViewChild('myNav') nav: NavController;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public cuentaService: CuentaService) {
+    cuentaService.getCuentas()
+      .subscribe(cuentas => {
+        this.cuentas = cuentas;
+      });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CuentaPage');
+  
+  public registroCuenta(id){
+    this.navCtrl.push(AddcuentaPage, {id:id});
   }
-  registroCuenta(){
-    this.navCtrl.push('AddcuentaPage');
-}
+  public crearCuenta(){
+    this.navCtrl.push(AddcuentaPage, {id:0})
+  }
 
 }

@@ -3,11 +3,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
     export class CuentaService{
-        constructor(public afDB: AngularFireDatabase){
+    constructor(public afDB: AngularFireDatabase){
     }
     cuentas = [];
     public getCuentas(){
-        // return this.oficinas;
         return this.afDB.list('cuenta/').valueChanges();
     }
     public getCuenta(id){

@@ -15,11 +15,12 @@ import { TipoCuentaService } from '../../services/tipoCuenta.service';
   templateUrl: 'addtipocuenta.html',
 })
 export class AddtipocuentaPage {
-  tipoCuenta = {};
+  tipoCuenta = {id:null, tipocuenta:null , descripcion:null};
   id = null;
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,
   public tipoCuentaService: TipoCuentaService) {
-    if (this.id != null){
+    this.id = navParams.get('id');
+    if (this.id != 0){
       tipoCuentaService.gettipoCuenta(this.id).subscribe(tipoCuenta => {
         this.tipoCuenta = tipoCuenta;
       })  
@@ -30,7 +31,7 @@ cancelar(){
   this.navCtrl.push('HomePage');
 }
 addtipoCuenta(){
-  if (this.id != null){
+  if (this.id != 0){
     this.tipoCuentaService.editartipoCuenta(this.tipoCuenta);
     let alert = this.alertCtrl.create({
       title: 'Ok!',

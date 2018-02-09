@@ -20,7 +20,7 @@ export class AddoficinaPage {
   constructor(public alertCtrl: AlertController,public navCtrl: NavController,
      public navParams: NavParams, public oficinasService: OficinasService) {
     this.id = navParams.get('id');
-    if (this.id != null){
+    if (this.id != 0){
     oficinasService.getOficina(this.id).subscribe(oficina => {
       this.oficina = oficina;
     });  
@@ -32,7 +32,7 @@ export class AddoficinaPage {
   }
 
   addOficina(){
-    if (this.id != null){
+    if (this.id != 0){
       this.oficinasService.editarOficina(this.oficina);
       let alert = this.alertCtrl.create({
         title: 'Ok!',

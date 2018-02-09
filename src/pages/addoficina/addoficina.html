@@ -34,7 +34,7 @@
               
     </ion-list>
     <button block ion-button color="primary" (click)="addOficina()">Guardar Oficina</button>
-    <button *ngIf="id != null"  ion-button block  (click)="deleteOficina()" color="danger">Eliminar  Oficina</button>
+    <button *ngIf="id != 0"  ion-button block  (click)="deleteOficina()" color="danger">Eliminar  Oficina</button>
     <!-- <button block ion-button color="secondary" (click)="cancelar()">Cancelar</button> -->
 
 </ion-content>

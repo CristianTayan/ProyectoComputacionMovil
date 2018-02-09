@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Agregar cuenta</ion-title>
   </ion-navbar>
 
@@ -17,67 +17,51 @@
   <ion-list>
       <ion-item>
         <ion-label floating>Nro de cuenta</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]="cuenta.numero" ></ion-input>
       </ion-item>
-      <!-- <ion-item>
-        <ion-label floating>Tipo cuenta</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item> -->
       <ion-item>
         <ion-label floating>Tipo cuenta</ion-label>
-        <ion-select [(ngModel)]="gaming">
-          <ion-option value="nes">Ahorros</ion-option>
-          <ion-option value="n64">Debito</ion-option>
-          <ion-option value="ps">Credito</ion-option>
-          <ion-option value="genesis">Corriente</ion-option>
-          <ion-option value="saturn">Otra..</ion-option>
+        <ion-select [(ngModel)]="cuenta.tipocuenta">
+          <ion-option value="ahorros">Ahorros</ion-option>
+          <ion-option value="debito">Debito</ion-option>
+          <ion-option value="credito">Credito</ion-option>
+          <ion-option value="corriente">Corriente</ion-option>
+          <ion-option value="otra">Otra..</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label floating>Cliente</ion-label>
-        <ion-select [(ngModel)]="cliente">
-          <ion-option value="nes">Cristian</ion-option>
-          <ion-option value="n64">Andres</ion-option>
-          <ion-option value="ps">Daniel</ion-option>
-          <ion-option value="genesis">Jenny</ion-option>
-          <ion-option value="saturn">Anita</ion-option>
+        <ion-select [(ngModel)]="cuenta.cliente">
+          <ion-option value="Cristian">Cristian</ion-option>
+          <ion-option value="Andres">Andres</ion-option>
+          <ion-option value="Daniel">Daniel</ion-option>
+          <ion-option value="Jenny">Jenny</ion-option>
+          <ion-option value="Anita">Anita</ion-option>
         </ion-select>
-      </ion-item>
-<!--       
-      <ion-item>
-        <ion-label floating>Cliente</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item> -->
+      </ion-item> 
+
       <ion-item>
         <ion-label floating>Oficina</ion-label>
-        <ion-select [(ngModel)]="oficina">
-          <ion-option value="nes">Sucursal 1</ion-option>
-          <ion-option value="n64">Sucursal 2</ion-option>
-          <ion-option value="ps">Agencia Ibarra</ion-option>
-          <ion-option value="genesis">Agencia Atuntaqui</ion-option>
-          <ion-option value="saturn">Agencia San Pablo</ion-option>
+        <ion-select [(ngModel)]="cuenta.oficina">
+          <ion-option value="Sucursal 1">Sucursal 1</ion-option>
+          <ion-option value="Sucursal 2">Sucursal 2</ion-option>
+          <ion-option value="Agencia Ibarra">Agencia Ibarra</ion-option>
+          <ion-option value="Agencia Atuntaqui">Agencia Atuntaqui</ion-option>
+          <ion-option value="Agencia San Pablo">Agencia San Pablo</ion-option>
         </ion-select>
       </ion-item>
-      <!-- <ion-item>
-        <ion-label floating>Oficina</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item> -->
-      <!-- <ion-item>
-        <ion-label floating>Fecha apertura</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item> -->
       <ion-item>
         <ion-label floating>Fecha apertura</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="cuenta.fecha"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label floating>Saldo</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text"  [(ngModel)]="cuenta.saldo" ></ion-input>
       </ion-item>
               
     </ion-list>
-    <button ion-button color="primary">Guardar</button>
-    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button ion-button color="primary" block (click)="addCuenta()">Guardar cuenta</button>
+    <button *ngIf="id != 0" ion-button color="danger" block (click)="deleteCuenta()">Eliminar cuenta</button>
   
 
 </ion-content>

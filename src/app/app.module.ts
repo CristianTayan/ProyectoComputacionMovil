@@ -8,21 +8,22 @@ import { AngularFireAuthModule } from "angularfire2/auth"
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './app.firebase.config';
-// import { ClientePage } from '../pages/cliente/cliente';
-// import { AddclientePage } from '../pages/addcliente/addcliente'
 import { ClienteService } from '../services/cliente.services';
 import {AddclientePage } from '../pages/addcliente/addcliente'
 import { OficinasService } from '../services/oficina.service';
 import { AddoficinaPage } from '../pages/addoficina/addoficina';
 import { AddtipocuentaPage } from '../pages/addtipocuenta/addtipocuenta';
 import { TipoCuentaService } from '../services/tipoCuenta.service';
+import { CuentaService } from '../services/cuenta.service';
+import { AddcuentaPage } from '../pages/addcuenta/addcuenta';
 
 @NgModule({
   declarations: [
     MyApp,
     AddclientePage,
     AddoficinaPage,
-    AddtipocuentaPage
+    AddtipocuentaPage,
+    AddcuentaPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,8 @@ import { TipoCuentaService } from '../services/tipoCuenta.service';
     MyApp,
     AddclientePage,
     AddoficinaPage,
-    AddtipocuentaPage
+    AddtipocuentaPage,
+    AddcuentaPage
     
 
   ],
@@ -46,7 +48,8 @@ import { TipoCuentaService } from '../services/tipoCuenta.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
      ClienteService,
      OficinasService,
-     TipoCuentaService
+     TipoCuentaService,
+     CuentaService
 
   ]
 })
