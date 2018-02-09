@@ -34,9 +34,13 @@ export class AddcuentaPage {
     });
     cuentaService.getClientes().subscribe(clientes =>{
       this.clientes = clientes;  
+      console.log(this.clientes);
+      
     });
     cuentaService.getOficinas().subscribe(oficinas =>{
-      this.oficinas = oficinas; 
+      this.oficinas = oficinas;
+      console.log(this.oficinas);
+       
     });
   }
 

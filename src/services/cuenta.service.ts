@@ -11,11 +11,11 @@ import { AngularFireDatabase } from 'angularfire2/database';
     tipoCuentas = [];
     
     public getOficinas(){
-        return this.afDB.list('oficinas/').valueChanges();
+        return this.afDB.list('oficina/').valueChanges();
     }
     
     public getClientes(){
-        return this.afDB.list('clientes/').valueChanges();
+        return this.afDB.list('cliente/').valueChanges();
     }
     public getTipoCuentas(){
         return this.afDB.list('tipocuenta/').valueChanges();
